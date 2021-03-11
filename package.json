@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Thiago Rocha <thiagorocha010@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.33",
