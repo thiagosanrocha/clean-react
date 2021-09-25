@@ -1,6 +1,6 @@
-import { AccountModel } from 'domain/models'
+import { AccountModel } from '@domain/models'
 
-interface AuthCredentials {
+export interface AuthCredentials {
   email: string
   password: string
 }
