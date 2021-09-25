@@ -18,10 +18,13 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "baseUrl": "src",
+    "paths": {
+      "@domain/*": ["./domain/*"],
+      "@data/*": ["./data/*"]
+    }
   },
   "include": [
-    "src",
-    "domain"
+    "src"
   ]
 }
