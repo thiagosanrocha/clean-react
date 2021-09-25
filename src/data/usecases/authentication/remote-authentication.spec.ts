@@ -1,5 +1,6 @@
 import { RemoteAuthentication } from './remote-authentication'
 import { HttpPostClient, HttpResponse, HttpStatusCode, HttpPostParams } from '@data/protocols/http'
+import faker from 'faker'
 
 class HttpPostClientSpy implements HttpPostClient {
   url?: string
@@ -18,7 +19,7 @@ type SutTypes = {
   httpPostClientSpy: HttpPostClientSpy
 }
 
-const makeSut = (url = 'any_url'): SutTypes => {
+const makeSut = (url = faker.internet.url()): SutTypes => {
   const httpPostClientSpy = new HttpPostClientSpy()
   const sut = new RemoteAuthentication(url, httpPostClientSpy)
 
@@ -30,13 +31,13 @@ const makeSut = (url = 'any_url'): SutTypes => {
 
 describe('RemoteAuthentication', () => {
   test('Should call HttpPostClient with correct URL', async () => {
-    const url = 'any_url'
+    const url = faker.internet.url()
 
     const { sut, httpPostClientSpy } = makeSut(url)
 
     const authCredentials = {
-      email: 'any_email@mail.com',
-      password: 'any_password'
+      email: faker.internet.email(),
+      password: faker.internet.password()
     }
 
     await sut.auth(authCredentials)
@@ -48,8 +49,8 @@ describe('RemoteAuthentication', () => {
     const { sut, httpPostClientSpy } = makeSut()
 
     const mockHttpResponse = {
-      accessToken: 'any_token',
-      name: 'any_name'
+      accessToken: faker.datatype.uuid(),
+      name: faker.name.findName()
     }
 
     httpPostClientSpy.response = {
@@ -58,8 +59,8 @@ describe('RemoteAuthentication', () => {
     }
 
     const authCredentials = {
-      email: 'any_email@mail.com',
-      password: 'any_password'
+      email: faker.internet.email(),
+      password: faker.internet.password()
     }
 
     const account = await sut.auth(authCredentials)
