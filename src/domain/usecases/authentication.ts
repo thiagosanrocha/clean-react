@@ -1,6 +1,6 @@
 import { AccountModel } from '@domain/models'
 
-export interface AuthCredentials {
+export type AuthCredentials = {
   email: string
   password: string
 }
