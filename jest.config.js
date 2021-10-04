@@ -8,6 +8,7 @@ module.exports = {
   },
   moduleNameMapper: {
     '@data(.*)': '<rootDir>/src/data/$1',
-    '@domain(.*)': '<rootDir>/src/domain/$1'
+    '@domain(.*)': '<rootDir>/src/domain/$1',
+    '@infra(.*)': '<rootDir>/src/infra/$1'
   }
 }
