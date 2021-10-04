@@ -3,7 +3,6 @@ import { HttpResponse } from './http-response'
 export type HttpPostParams = {
   url: string
   payload?: any
-  headers?: any
 }
 
 export interface HttpPostClient {
